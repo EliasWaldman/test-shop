@@ -7,6 +7,18 @@ use Illuminate\Support\Stringable;
 class Sorter
 {
     public const SORT_KEY = 'sort';
+    protected array $sortOptions = [
+        '' => 'По умолчанию',
+        'price' => 'От дешевых к дорогим',
+        '-price' => 'От дорогих к дешевым',
+        'name' => 'По наименованию',
+        '-name' => 'По наименованию в обратном порядке',
+    ];
+
+    public function getSortOptions(): array
+    {
+        return $this->sortOptions;
+    }
 
     public function __construct(
         protected array $columns = []
