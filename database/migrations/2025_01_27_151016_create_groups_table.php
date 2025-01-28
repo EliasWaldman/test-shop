@@ -15,14 +15,17 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
             $table->foreignIdFor(Group::class, 'id_parent')
                 ->nullable()
                 ->constrained('groups')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+                ->nullOnDelete()
+                ->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// Главная страница
+
+
 Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
-
-// Страница группы
-Route::get('/group/{id}', [CatalogController::class, 'group'])->name('catalog.group');
-
-// Карточка товара
-Route::get('/product/{id}', [CatalogController::class, 'product'])->name('catalog.product');
+Route::get('/groups/{group}', [CatalogController::class, 'show'])->name('catalog.show');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');

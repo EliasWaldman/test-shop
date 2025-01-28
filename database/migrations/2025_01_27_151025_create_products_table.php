@@ -19,7 +19,6 @@ return new class extends Migration
                 ->constrained('groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-
             $table->timestamps();
         });
     }
